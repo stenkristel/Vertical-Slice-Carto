@@ -6,29 +6,34 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed = 1;
 
-    void Start()
-    {
+    Animator PlayerAnimator;
 
+    private void Start()
+    {
+        PlayerAnimator = gameObject.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             gameObject.transform.position += new Vector3(0, 0, speed * Time.deltaTime);
+            PlayerAnimator.SetBool("up", true);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             gameObject.transform.position -= new Vector3(0, 0, speed * Time.deltaTime);
+            PlayerAnimator.SetBool("down", true);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             gameObject.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+            PlayerAnimator.SetBool("left", true);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             gameObject.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+            PlayerAnimator.SetBool("right", true);
         }
     }
 }
