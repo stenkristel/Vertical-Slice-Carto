@@ -1,0 +1,50 @@
+git branch
+zien op welke branch je zit
+
+git branch voorbeeldnaam
+maak een nieuwe branch aan
+
+git checkout voorbeeldnaam
+verander naar een bepaalde branch
+
+git checkout -
+verander naar de laatste branch waar je bent uit gechechkt
+
+git merge voorbeeldnaaam
+merged een bepaalde branch naar de branch waar je in zit
+
+
+
+https://www.youtube.com/watch?v=qY6IooRlNGI
+git tutorial
+
+
+voorbeeld:
+//Ik wil een nieuw script schrijven
+
+git branch
+//ik zie dat ik op de main branch zit
+
+git branch MijnScript
+git branch
+//ik zit nog steeds op de main branch, maar de MijnScript branch is aangemaakt
+
+git checkout MijnScript
+git branch
+//ik zit nu op de MijnScript branch
+
+//ik schrijf de functie
+git commit -m "functie gemaakt"
+
+git branch main
+//ik zit nu op de main branch
+
+git pull - IMPORTANT, ALS JE MERGE ERRORS WILT; NEGEER DEZE STAP
+// mijn main is nu up to date
+
+git merge MijnFunctie
+//ik heb nu MijnFunctie branch gemerged met de main branch
+
+git push
+//alles is nu gepushed naar github 
+
