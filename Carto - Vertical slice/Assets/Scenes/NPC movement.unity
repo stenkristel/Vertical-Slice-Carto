@@ -272,7 +272,8 @@ MonoBehaviour:
   - {fileID: 53415325}
   - {fileID: 1362407925}
   - {fileID: 688722001}
-  speed: 5
+  speed: 8
+  speedafterfreeze: 5
   currentWaypoint: 2
   WPradius: 0.5
 --- !u!212 &124949873
