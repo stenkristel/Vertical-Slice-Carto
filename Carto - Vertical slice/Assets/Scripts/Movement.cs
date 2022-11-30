@@ -35,5 +35,9 @@ public class Movement : MonoBehaviour
             gameObject.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
             PlayerAnimator.SetBool("right", true);
         }
+        else
+        {
+            PlayerAnimator.SetBool("idle", true);
+        }
     }
 }
