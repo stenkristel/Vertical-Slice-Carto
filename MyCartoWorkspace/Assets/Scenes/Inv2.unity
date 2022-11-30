@@ -200,13 +200,19 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232884417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 438477125}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &438477125 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9138430288583663686, guid: 5fd997ecadea5cc45b8d452e7bc07ef0, type: 3}
+  m_PrefabInstance: {fileID: 3832606455608035669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1680860509
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +279,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060996593
 GameObject:
@@ -374,11 +380,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 232884420}
     m_Modifications:
     - target: {fileID: 1043520439868470231, guid: 5fd997ecadea5cc45b8d452e7bc07ef0, type: 3}
       propertyPath: m_Name
-      value: Canv2
+      value: Canvas01
       objectReference: {fileID: 0}
     - target: {fileID: 2589632463387247019, guid: 5fd997ecadea5cc45b8d452e7bc07ef0, type: 3}
       propertyPath: m_Color.b
@@ -392,6 +398,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.13333334
       objectReference: {fileID: 0}
+    - target: {fileID: 5169806176576594680, guid: 5fd997ecadea5cc45b8d452e7bc07ef0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 232884419}
+    - target: {fileID: 5169806176576594680, guid: 5fd997ecadea5cc45b8d452e7bc07ef0, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169806176576594680, guid: 5fd997ecadea5cc45b8d452e7bc07ef0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9138430288583663686, guid: 5fd997ecadea5cc45b8d452e7bc07ef0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -402,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9138430288583663686, guid: 5fd997ecadea5cc45b8d452e7bc07ef0, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9138430288583663686, guid: 5fd997ecadea5cc45b8d452e7bc07ef0, type: 3}
       propertyPath: m_AnchorMax.x
