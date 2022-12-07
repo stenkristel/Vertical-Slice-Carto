@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -214,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &625026390
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -305,7 +305,6 @@ GameObject:
   - component: {fileID: 769850915}
   - component: {fileID: 769850914}
   - component: {fileID: 769850913}
-  - component: {fileID: 769850916}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -379,19 +378,6 @@ Transform:
   m_Father: {fileID: 1590982547}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
---- !u!114 &769850916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769850912}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bef22b3ff665f942bb926ca6320c032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!1 &881472286
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,7 +658,6 @@ GameObject:
   - component: {fileID: 1590982548}
   - component: {fileID: 1590982549}
   - component: {fileID: 1590982550}
-  - component: {fileID: 1590982551}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -797,23 +782,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1590982543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f13e6bfb077a084aa63d7f69ab7f7d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 881472286}
---- !u!114 &1590982551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590982543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19cb2d787d7df884c95f559ac86217a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  canvas: {fileID: 881472286}
+  cam: {fileID: 769850912}
 --- !u!1 &1742338574
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -918,7 +892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
