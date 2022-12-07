@@ -10,10 +10,11 @@ public class OpenMap : MonoBehaviour
     private bool mapmode = false;
     private bool zoomingout;
     private bool zoomingin;
+    private bool fading;
     [SerializeField] private float speed;
+    [SerializeField] private GameObject canvas;
 
-    private GameObject cam;
-    private GameObject canvas;
+    [SerializeField] private GameObject cam;
 
     private void Start()
     {
@@ -25,70 +26,73 @@ public class OpenMap : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown("tab"))
+        if (Input.GetKeyDown("tab") & fading == false & zoomingin == false & zoomingout == false)
         {
+            fading = true;
+            UIfade();
             if (mapmode == false)
             {
                 zoomingout = true;
-                //camerazoomout(speed, speed);
             }
             else if (mapmode == true)
             {
                 zoomingin = true;
-                //camerazoomout(speed, speed);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            StartCoroutine(fade());
-        }
-
-            camerazoomout();
-
-
+        camerazoomout();
     }
 
     private void camerazoomout()
     {
         if (zoomingin == true)
         {
-            //camerazoomout(-speed, speed);
             cam.transform.position += new Vector3(0, -speed, speed) * Time.deltaTime;
             if (cam.transform.position.y <= startpos.y)
             {
                 zoomingin = false;
-                mapmode = false;
             }
         }
 
         if (zoomingout == true)
         {
-            //camerazoomout(speed, -speed);
             cam.transform.position += new Vector3(0, speed, -speed) * Time.deltaTime;
             if (cam.transform.position.y >= endpos.y)
             {
                 zoomingout = false;
-                mapmode = true;
             }
         }
     }
 
     private void UIfade()
     {
+        float alpha;
+        if (mapmode == true)
+        {
+            alpha = -0.34f;
+        }
+        else
+        {
+            alpha = 0.34f;
+        }
         foreach (Transform child in canvas.transform)
         {
             if (child.tag == "map")
             {
                 RawImage Image = child.GetComponent<RawImage>();
-                Image.color = new Color(Image.color.r, Image.color.g, Image.color.b, 0.5f);
+                StartCoroutine(fade(Image, alpha));
             }
         }
     }
 
-    private IEnumerator fade(RawImage image)
+    IEnumerator fade(RawImage image, float Alpha)
     {
-        image.color = new Color(image.color.r, image.color.g, image.color.b, -0.1f);
-        yield return new WaitForSeconds(1); 
+        image.color += new Color(0, 0, 0, Alpha);
+        yield return new WaitForSeconds(0.07f);
+        image.color += new Color(0, 0, 0, Alpha);
+        yield return new WaitForSeconds(0.07f);
+        image.color += new Color(0, 0, 0, Alpha);
+        mapmode = !mapmode;
+        fading = false;
     }
 }
