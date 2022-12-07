@@ -13,9 +13,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnBeginDrag(PointerEventData eventData)
     {
         throw new System.NotImplementedException();
-        image.raycastTarget = false;
+        //image.raycastTarget = false;
         //parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
+        //transform.SetParent(transform.root);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -26,7 +26,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         throw new System.NotImplementedException();
-        image.raycastTarget = true;
+        //image.raycastTarget = true;
         //transform.SetParent(parentAfterDrag);
     }
 }

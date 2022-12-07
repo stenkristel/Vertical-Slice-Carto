@@ -16,19 +16,19 @@ public class mapMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            transform.position += new Vector3(0, 10, 0);
+            transform.position += new Vector3(0, 100, 0);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            transform.position -= new Vector3(0, 10, 0);
+            transform.position -= new Vector3(0, 100, 0);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.position -= new Vector3(10, 0, 0);
+            transform.position -= new Vector3(100, 0, 0);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            transform.position += new Vector3(10, 0, 0);
+            transform.position += new Vector3(100, 0, 0);
         }
     }
 }
