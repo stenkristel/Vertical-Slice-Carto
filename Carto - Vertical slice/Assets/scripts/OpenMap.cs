@@ -12,9 +12,11 @@ public class OpenMap : MonoBehaviour
     private bool zoomingin;
     private bool fading;
     [SerializeField] private float speed;
-    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject mapelements;
 
     [SerializeField] private GameObject cam;
+    private PlayerCamera camscript;
+    private Movement Playermovement;
 
     private void Start()
     {
@@ -22,6 +24,8 @@ public class OpenMap : MonoBehaviour
         zoomingout = false;
         mapmode = false;
         speed = 1000;
+        camscript = cam.GetComponent<PlayerCamera>();
+        Playermovement = gameObject.GetComponent<Movement>();
     }
     void Update()
     {
@@ -33,11 +37,30 @@ public class OpenMap : MonoBehaviour
             if (mapmode == false)
             {
                 zoomingout = true;
+                camscript.enabled = false;
+                Playermovement.enabled = false;
             }
             else if (mapmode == true)
             {
                 zoomingin = true;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) & mapmode == true)
+        {
+            mapelements.transform.position += new Vector3(0, 10, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.S) & mapmode == true)
+        {
+            mapelements.transform.position -= new Vector3(0, 10, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.A) & mapmode == true)
+        {
+            mapelements.transform.position -= new Vector3(10, 0, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.D) & mapmode == true)
+        {
+            mapelements.transform.position += new Vector3(10, 0, 0);
         }
 
         camerazoomout();
@@ -51,6 +74,8 @@ public class OpenMap : MonoBehaviour
             if (cam.transform.position.y <= startpos.y)
             {
                 zoomingin = false;
+                camscript.enabled = true;
+                Playermovement.enabled = true;
             }
         }
 
@@ -75,7 +100,7 @@ public class OpenMap : MonoBehaviour
         {
             alpha = 0.34f;
         }
-        foreach (Transform child in canvas.transform)
+        foreach (Transform child in mapelements.transform)
         {
             if (child.tag == "map")
             {
