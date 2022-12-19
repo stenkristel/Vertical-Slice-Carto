@@ -39,10 +39,10 @@ TextureImporter:
     wrapU: 0
     wrapV: 0
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,8 +52,8 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 0
-  spriteTessellationDetail: -1
-  textureType: 0
+  spriteTessellationDetail: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -103,18 +103,198 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
-    outline: []
+    sprites:
+    - serializedVersion: 2
+      name: BO_carto_UI_buttons_XB_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 394
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d1b6f539199204db35ba235d018db6
+      internalID: 1669541897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BO_carto_UI_buttons_XB_1
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 395
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba5d02c167038314db0098cd3c2ac764
+      internalID: -924468325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BO_carto_UI_buttons_XB_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 452
+        width: 422
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac0d0468b4d8d241903974f6480f46e
+      internalID: -708676680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BO_carto_UI_buttons_XB_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 48
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8c7d76ec4208f449e2e92dc677374d
+      internalID: 1573962443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BO_carto_UI_buttons_XB_4
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 48
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf88a72ef360c84986375c54df68d85
+      internalID: 1423989311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BO_carto_UI_buttons_XB_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 116
+        width: 422
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d74bb507d42593a499055d5eec2b806f
+      internalID: 1783971383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -533, y: -40.5}
+      - {x: -585, y: -54.5}
+      - {x: -585, y: -342.5}
+      - {x: -557, y: -346.5}
+      - {x: -287, y: -346.5}
+      - {x: -279, y: -322.5}
+      - {x: -279, y: -78.5}
+      - {x: -321, y: -40.5}
+    - - {x: 19, y: -40.5}
+      - {x: -159, y: -40.5}
+      - {x: -199, y: -119.5}
+      - {x: -199, y: -302.5}
+      - {x: -197, y: -305.5}
+      - {x: -108, y: -346.5}
+      - {x: 79, y: -346.5}
+      - {x: 107, y: -256.5}
+      - {x: 107, y: -104.5}
+    - - {x: 494, y: -58.5}
+      - {x: 474, y: -54.5}
+      - {x: 233, y: -54.5}
+      - {x: 164, y: -86.5}
+      - {x: 164, y: -278.5}
+      - {x: 590, y: -278.5}
+      - {x: 590, y: -100.5}
+      - {x: 578, y: -84.5}
+    - - {x: -530, y: 305.5}
+      - {x: -585, y: 263.5}
+      - {x: -585, y: 93.5}
+      - {x: -563, y: 54.5}
+      - {x: -512, y: 20.5}
+      - {x: -486, y: -0.5}
+      - {x: -351, y: -0.5}
+      - {x: -279, y: 46.5}
+      - {x: -279, y: 244.5}
+      - {x: -290, y: 305.5}
+    - - {x: -151, y: 306.5}
+      - {x: -199, y: 246.5}
+      - {x: -199, y: 28.5}
+      - {x: -158, y: 0.5}
+      - {x: 49, y: 0.5}
+      - {x: 107, y: 86.5}
+      - {x: 107, y: 230.5}
+      - {x: 50, y: 306.5}
+    - - {x: 170, y: 281.5}
+      - {x: 164, y: 250.5}
+      - {x: 164, y: 57.5}
+      - {x: 590, y: 57.5}
+      - {x: 590, y: 281.5}
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BO_carto_UI_buttons_XB_3: 1573962443
+      BO_carto_UI_buttons_XB_0: 1669541897
+      BO_carto_UI_buttons_XB_2: -708676680
+      BO_carto_UI_buttons_XB_4: 1423989311
+      BO_carto_UI_buttons_XB_5: 1783971383
+      BO_carto_UI_buttons_XB_1: -924468325
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
