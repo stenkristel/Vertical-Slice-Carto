@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class mapPlace : MonoBehaviour
+public class Scope : MonoBehaviour
 {
 
     public GameObject Scope1;
