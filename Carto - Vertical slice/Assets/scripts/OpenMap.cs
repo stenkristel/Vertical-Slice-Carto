@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class OpenMap : MonoBehaviour
 {
-    private Vector3 startpos = new Vector3(-1, 12, -9);
     private Vector3 endpos = new Vector3(-1, 162, -141);
+    [SerializeField] private GameObject campos;
+    [SerializeField] private int startposoffset;
     private bool mapmode = false;
     private bool zoomingout;
     private bool zoomingin;
@@ -16,14 +17,14 @@ public class OpenMap : MonoBehaviour
 
     [SerializeField] private GameObject cam;
     private PlayerCamera camscript;
-    private Movement Playermovement;
+    [SerializeField] private Movement Playermovement;
 
     private void Start()
     {
         zoomingin = false;
         zoomingout = false;
         mapmode = false;
-        speed = 1000;
+        speed = 5;
         camscript = cam.GetComponent<PlayerCamera>();
         Playermovement = gameObject.GetComponent<Movement>();
     }
@@ -46,6 +47,7 @@ public class OpenMap : MonoBehaviour
             }
         }
 
+        /*
         if (Input.GetKeyDown(KeyCode.W) & mapmode == true)
         {
             mapelements.transform.position += new Vector3(0, 10, 0);
@@ -62,6 +64,7 @@ public class OpenMap : MonoBehaviour
         {
             mapelements.transform.position += new Vector3(10, 0, 0);
         }
+        */
 
         camerazoomout();
     }
@@ -70,21 +73,24 @@ public class OpenMap : MonoBehaviour
     {
         if (zoomingin == true)
         {
-            cam.transform.position += new Vector3(0, -speed, speed) * Time.deltaTime;
-            if (cam.transform.position.y <= startpos.y)
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, campos.transform.position, speed);
+            if (cam.transform.position == campos.transform.position)
             {
                 zoomingin = false;
                 camscript.enabled = true;
                 Playermovement.enabled = true;
+                mapmode = !mapmode;
             }
+            
         }
 
         if (zoomingout == true)
         {
-            cam.transform.position += new Vector3(0, speed, -speed) * Time.deltaTime;
-            if (cam.transform.position.y >= endpos.y)
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, endpos, speed);
+            if (cam.transform.position == endpos)
             {
                 zoomingout = false;
+                mapmode = !mapmode;
             }
         }
     }
@@ -104,20 +110,19 @@ public class OpenMap : MonoBehaviour
         {
             if (child.tag == "map")
             {
-                RawImage Image = child.GetComponent<RawImage>();
+                SpriteRenderer Image = child.GetComponent<SpriteRenderer>();
                 StartCoroutine(fade(Image, alpha));
             }
         }
     }
 
-    IEnumerator fade(RawImage image, float Alpha)
+    IEnumerator fade(SpriteRenderer image, float Alpha)
     {
         image.color += new Color(0, 0, 0, Alpha);
         yield return new WaitForSeconds(0.07f);
         image.color += new Color(0, 0, 0, Alpha);
         yield return new WaitForSeconds(0.07f);
         image.color += new Color(0, 0, 0, Alpha);
-        mapmode = !mapmode;
         fading = false;
     }
 }
