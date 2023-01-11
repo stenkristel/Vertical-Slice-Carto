@@ -1616,23 +1616,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cb2d787d7df884c95f559ac86217a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  campos: {fileID: 2034836054}
-  startposoffset: 0
   speed: 0
-  mapelements: {fileID: 1515341286}
+  canvas: {fileID: 0}
   cam: {fileID: 274788602}
-  Playermovement: {fileID: 1307875318}
---- !u!114 &1307875318 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7073823344550482010, guid: f682fdf4197dfa24cbfa853881b06b00, type: 3}
-  m_PrefabInstance: {fileID: 1449607313}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307875313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9cb5319c8e4f1c4c8b2d3a919de88c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1307875321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7073823344550482008, guid: f682fdf4197dfa24cbfa853881b06b00, type: 3}
