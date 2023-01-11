@@ -6,13 +6,18 @@ public class TilePlacement : MonoBehaviour
 {
     public GameObject selectedpiece;
     public GameObject nearbytile;
+    private float xdir;
+    private float zdir;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            nearbytile = findUItiles();
-            placeoverworldtile();
+            nearbytile = findUItile();
+            if (nearbytile != null)
+            {
+                placeoverworldtile();
+            }
             Debug.Log("Find UI tiles = " + nearbytile);
         }
     }
@@ -21,10 +26,10 @@ public class TilePlacement : MonoBehaviour
     {
         GameObject selectedpieceOW = takemappiece(selectedpiece);
         GameObject nearbypieceOW = takemappiece(nearbytile);
-        selectedpieceOW.gameObject.transform.position = new Vector3(nearbypieceOW.transform.position.x, nearbypieceOW.transform.position.y, nearbypieceOW.transform.position.z + 40);
+        selectedpieceOW.gameObject.transform.position = new Vector3(nearbypieceOW.transform.position.x + xdir, nearbypieceOW.transform.position.y, nearbypieceOW.transform.position.z + zdir);
     }
 
-    public GameObject findUItiles()
+    public GameObject findUItile()
     {
         Vector3 dis = Vector3.down;
         for (int i = 0; i < 4f; i++)
@@ -33,15 +38,23 @@ public class TilePlacement : MonoBehaviour
             {
                 case 0:
                     dis = Vector3.down;
+                    zdir = 40;
+                    xdir = 0;
                     break;
                 case 1:
                     dis = Vector3.up;
+                    zdir = -40;
+                    xdir = 0;
                     break;
                 case 2:
                     dis = Vector3.right;
+                    zdir = 0;
+                    xdir = -40;
                     break;
                 case 3:
                     dis = Vector3.left;
+                    zdir = 0;
+                    xdir = 40;
                     break;
             }
             GameObject UItile =  raycastUItile(dis);
@@ -55,7 +68,6 @@ public class TilePlacement : MonoBehaviour
 
     public GameObject raycastUItile(Vector3 distance)
     {
-        Debug.Log("shooting raycast" + distance);
         if (Physics.Raycast(selectedpiece.transform.position, selectedpiece.transform.TransformDirection(distance), out RaycastHit hit, 5f))
         { 
             return hit.collider.gameObject;
@@ -64,7 +76,11 @@ public class TilePlacement : MonoBehaviour
     }
     public GameObject takemappiece(GameObject piece)
     {
-        return GameObject.Find(piece.name + "OW");
+        if (piece != null)
+        {
+            return GameObject.Find(piece.name + "OW");
+        }
+        else return null;
     }
 
 }

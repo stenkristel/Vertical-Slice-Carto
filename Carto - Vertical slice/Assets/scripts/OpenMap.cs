@@ -18,6 +18,7 @@ public class OpenMap : MonoBehaviour
     [SerializeField] private GameObject cam;
     private PlayerCamera camscript;
     [SerializeField] private Movement Playermovement;
+    private TilePlacement tileplacementscript;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class OpenMap : MonoBehaviour
         speed = 5;
         camscript = cam.GetComponent<PlayerCamera>();
         Playermovement = gameObject.GetComponent<Movement>();
+        tileplacementscript = gameObject.GetComponent<TilePlacement>();
     }
     void Update()
     {
@@ -40,10 +42,12 @@ public class OpenMap : MonoBehaviour
                 zoomingout = true;
                 camscript.enabled = false;
                 Playermovement.enabled = false;
+                
             }
             else if (mapmode == true)
             {
                 zoomingin = true;
+                tileplacementscript.enabled = false;
             }
         }
 
@@ -79,6 +83,7 @@ public class OpenMap : MonoBehaviour
                 zoomingin = false;
                 camscript.enabled = true;
                 Playermovement.enabled = true;
+                
                 mapmode = !mapmode;
             }
             
@@ -90,6 +95,7 @@ public class OpenMap : MonoBehaviour
             if (cam.transform.position == endpos)
             {
                 zoomingout = false;
+                tileplacementscript.enabled = true;
                 mapmode = !mapmode;
             }
         }
@@ -98,31 +104,42 @@ public class OpenMap : MonoBehaviour
     private void UIfade()
     {
         float alpha;
+        float changepos;
         if (mapmode == true)
         {
             alpha = -0.34f;
+            changepos = 2f;
         }
         else
         {
             alpha = 0.34f;
+            changepos = -2f;
         }
         foreach (Transform child in mapelements.transform)
         {
             if (child.tag == "map")
             {
                 SpriteRenderer Image = child.GetComponent<SpriteRenderer>();
-                StartCoroutine(fade(Image, alpha));
+                StartCoroutine(fade(Image, alpha, 0f));
+            }
+            else if (child.tag == "maptile")
+            {
+                SpriteRenderer Image = child.GetComponent<SpriteRenderer>();
+                StartCoroutine(fade(Image, alpha, changepos));
             }
         }
     }
 
-    IEnumerator fade(SpriteRenderer image, float Alpha)
+    IEnumerator fade(SpriteRenderer image, float Alpha, float Changepos)
     {
         image.color += new Color(0, 0, 0, Alpha);
+        image.transform.position += new Vector3(0f, Changepos, -Changepos);
         yield return new WaitForSeconds(0.07f);
         image.color += new Color(0, 0, 0, Alpha);
+        image.transform.position += new Vector3(0f, Changepos, -Changepos);
         yield return new WaitForSeconds(0.07f);
         image.color += new Color(0, 0, 0, Alpha);
+        image.transform.position += new Vector3(0f, Changepos, -Changepos);
         fading = false;
     }
 }
