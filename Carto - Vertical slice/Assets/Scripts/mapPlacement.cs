@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class mapPlacement : MonoBehaviour
 {
-    public GameObject Map;
-    public GameObject Scope;
+    public GameObject CenterPos;
     public GameObject A1; //is de naam van de Map Pieces
 
     void Start()
@@ -26,6 +25,6 @@ public class mapPlacement : MonoBehaviour
 
     private void PieceMovement()
     {
-        A1.transform.position = new Vector3(0, 0, 0);
+        A1.transform.position = CenterPos.transform.position;
     }
 }
