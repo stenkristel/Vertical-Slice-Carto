@@ -14,11 +14,14 @@ public class OpenMap : MonoBehaviour
     private bool fading;
     [SerializeField] private float speed;
     [SerializeField] private GameObject mapelements;
+    [SerializeField] private GameObject maptiles;
 
     [SerializeField] private GameObject cam;
     private PlayerCamera camscript;
     [SerializeField] private Movement Playermovement;
     private TilePlacement tileplacementscript;
+
+    [SerializeField] private GameObject Mapcharacter;
 
     private void Start()
     {
@@ -32,13 +35,13 @@ public class OpenMap : MonoBehaviour
     }
     void Update()
     {
-
         if (Input.GetKeyDown("tab") & fading == false & zoomingin == false & zoomingout == false)
-        {
+        { 
             fading = true;
             UIfade();
             if (mapmode == false)
             {
+                asignMapChaPos();
                 zoomingout = true;
                 camscript.enabled = false;
                 Playermovement.enabled = false;
@@ -50,26 +53,6 @@ public class OpenMap : MonoBehaviour
                 tileplacementscript.enabled = false;
             }
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.W) & mapmode == true)
-        {
-            mapelements.transform.position += new Vector3(0, 10, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.S) & mapmode == true)
-        {
-            mapelements.transform.position -= new Vector3(0, 10, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.A) & mapmode == true)
-        {
-            mapelements.transform.position -= new Vector3(10, 0, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.D) & mapmode == true)
-        {
-            mapelements.transform.position += new Vector3(10, 0, 0);
-        }
-        */
-
         camerazoomout();
     }
 
@@ -122,12 +105,13 @@ public class OpenMap : MonoBehaviour
                 SpriteRenderer Image = child.GetComponent<SpriteRenderer>();
                 StartCoroutine(fade(Image, alpha, 0f));
             }
-            else if (child.tag == "maptile")
-            {
-                SpriteRenderer Image = child.GetComponent<SpriteRenderer>();
-                StartCoroutine(fade(Image, alpha, changepos));
-            }
         }
+        foreach (Transform Child in maptiles.transform)
+        {
+            SpriteRenderer Image = Child.GetComponent<SpriteRenderer>();
+            StartCoroutine(fade(Image, alpha, changepos));
+        }
+
     }
 
     IEnumerator fade(SpriteRenderer image, float Alpha, float Changepos)
@@ -141,5 +125,38 @@ public class OpenMap : MonoBehaviour
         image.color += new Color(0, 0, 0, Alpha);
         image.transform.position += new Vector3(0f, Changepos, -Changepos);
         fading = false;
+    }
+
+    public void asignMapChaPos()
+    {
+            GameObject Piece = findcurrentOWmap();
+            Mapcharacter.transform.position = new Vector3(findmatchingMAPpiece(Piece).gameObject.transform.position.x, Mapcharacter.transform.position.y, Mapcharacter.transform.position.z);
+    }
+
+    public void MoveMaptoMiddle(GameObject MapPiece)
+    {
+        float xdistance = MapPiece.transform.position.x;
+        Debug.Log(xdistance);
+        foreach (Transform child in maptiles.transform)
+        {
+            child.transform.position -= new Vector3(xdistance, 0, 0);
+        }
+    }
+
+    public GameObject findcurrentOWmap()
+    {
+        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.TransformDirection(Vector3.down), out RaycastHit hit, 5f))
+        {
+            return hit.collider.gameObject;
+        }
+        else return null;
+    }
+    public GameObject findmatchingMAPpiece(GameObject OWpiece)
+    {
+        if (OWpiece != null)
+        {
+            return GameObject.Find(OWpiece.name.Remove(2));
+        }
+        else return null;
     }
 }

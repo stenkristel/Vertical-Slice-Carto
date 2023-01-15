@@ -24,8 +24,8 @@ public class TilePlacement : MonoBehaviour
 
     public void placeoverworldtile()
     {
-        GameObject selectedpieceOW = takemappiece(selectedpiece);
-        GameObject nearbypieceOW = takemappiece(nearbytile);
+        GameObject selectedpieceOW = findmathcingOWpiece(selectedpiece);
+        GameObject nearbypieceOW = findmathcingOWpiece(nearbytile);
         selectedpieceOW.gameObject.transform.position = new Vector3(nearbypieceOW.transform.position.x + xdir, nearbypieceOW.transform.position.y, nearbypieceOW.transform.position.z + zdir);
     }
 
@@ -74,7 +74,7 @@ public class TilePlacement : MonoBehaviour
         }
         else return null;
     }
-    public GameObject takemappiece(GameObject piece)
+    public GameObject findmathcingOWpiece(GameObject piece)
     {
         if (piece != null)
         {
@@ -82,5 +82,6 @@ public class TilePlacement : MonoBehaviour
         }
         else return null;
     }
+
 
 }
