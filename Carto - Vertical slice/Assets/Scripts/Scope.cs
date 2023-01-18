@@ -8,12 +8,12 @@ public class Scope : MonoBehaviour
 
     public GameObject Scope1;
     public GameObject Scope2;
-    public bool scope1 = true;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        GetComponent<mapPlacement>();
+        Scope1.SetActive(true);
     }
 
     // Update is called once per frame
