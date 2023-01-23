@@ -7,15 +7,15 @@ public class mapPlacement : MonoBehaviour
 {
     public GameObject CenterPos;
     public GameObject A1; //is de naam van de Map Pieces
-    //public GameObject A2;
+    public GameObject A1OW; //De naam van de Overworld Piece
 
-    private Transform Inventory;
+    public GameObject BG; //Staat voor de background, waar je de map piece op moet plaatsen. 
+    public GameObject Scope; 
 
     void Start()
     {
-        GetComponent<Scope>();
-        GetComponent<inventory>();
-        Debug.Log(transform.parent);
+        GetComponent<TilePlacement>();
+        //Debug.Log(transform.parent);
     }
 
     // Update is called once per frame
@@ -36,16 +36,23 @@ public class mapPlacement : MonoBehaviour
             PieceRotationD();
         }
 
-        A1.transform.SetParent(Inventory, true);
+        //A1.transform.SetParent(BG.transform, false);
+        
     }
 
     private void PieceMovement()
     {
         A1.transform.position = CenterPos.transform.position;
+
         if (Input.GetKeyDown(KeyCode.W))
             {
                 transform.localScale = new Vector3(2, 2, 0);
             }
+
+        if (A1.transform.position == Scope.transform.position)
+        {
+            A1.transform.SetParent(BG.transform, false);
+        }
 
     }
 
@@ -59,7 +66,10 @@ public class mapPlacement : MonoBehaviour
         A1.transform.localEulerAngles -= new Vector3(0, 0, 90);
     }
 
-    //transform.parent = newObject.transform;
-    //transform.parent = newParent; // where newParent is also a transform
 
+    private void PlaceMapPiece()
+    {
+        //A1.transform.SetParent(Inventory, false);
+        //A1.transform.SetParent(Background, true);
+    }
 }

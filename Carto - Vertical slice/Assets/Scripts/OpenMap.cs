@@ -66,7 +66,6 @@ public class OpenMap : MonoBehaviour
                 zoomingin = false;
                 camscript.enabled = true;
                 Playermovement.enabled = true;
-
                 mapmode = !mapmode;
             }
 

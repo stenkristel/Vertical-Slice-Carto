@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class mapMovement : MonoBehaviour
 {
+    public GameObject MPiece;
+
     // Start is called before the first frame update
     void Start()
     {
