@@ -130,7 +130,8 @@ public class OpenMap : MonoBehaviour
     public void asignMapChaPos()
     {
         GameObject Piece = findcurrentOWmap();
-        Mapcharacter.transform.position = new Vector3(findmatchingMAPpiece(Piece).gameObject.transform.position.x, Mapcharacter.transform.position.y, Mapcharacter.transform.position.z);
+        Debug.Log(Piece);
+        Mapcharacter.gameObject.transform.position = new Vector3(findmatchingMAPpiece(Piece).gameObject.transform.position.x, Mapcharacter.transform.position.y, Mapcharacter.transform.position.z);
     }
 
     public void MoveMaptoMiddle(GameObject MapPiece)

@@ -16,11 +16,11 @@ public class mapMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            transform.position += new Vector3(0, 1, 0);
+            transform.position += new Vector3(0, 1, 1);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            transform.position -= new Vector3(0, 1, 0);
+            transform.position -= new Vector3(0, 1, 1);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
