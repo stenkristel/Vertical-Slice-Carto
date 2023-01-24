@@ -6,6 +6,10 @@ TagManager:
   tags:
   - map
   - maptile
+  - back
+  - front
+  - left
+  - right
   layers:
   - Default
   - TransparentFX

@@ -25,6 +25,13 @@ public class Movement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.z);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+        {
+            animator.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
+            animator.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
+        }
+
     }
 
     private void FixedUpdate()
