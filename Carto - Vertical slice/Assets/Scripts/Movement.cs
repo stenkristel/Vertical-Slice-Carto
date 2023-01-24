@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     public Rigidbody rb;
     public Animator animator;
 
+    public string idle;
+
     Vector3 movement;
 
     private void Start()
@@ -26,11 +28,19 @@ public class Movement : MonoBehaviour
         animator.SetFloat("Vertical", movement.z);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            animator.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
-            animator.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
+            animator.SetBool("isFWalking", true);
+            idle = "down";
         }
+        else if(idle == "down")
+        {
+            animator.SetBool("isFWalking", false);
+            animator.SetBool("isFIdle", true);
+        }
+
+
+
     }
 
     private void FixedUpdate()

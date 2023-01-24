@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7073823344550482012}
   - component: {fileID: 7073823344550482011}
   - component: {fileID: 7073823344550482010}
-  - component: {fileID: 7073823344550482009}
   - component: {fileID: 7073823344550482013}
   m_Layer: 0
   m_Name: Player
@@ -80,27 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rb: {fileID: 7073823344550482011}
-  animator: {fileID: 7073823344550482009}
---- !u!95 &7073823344550482009
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7073823344550482007}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 845d83a86b582da4eacdb1879c1e7e8d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  animator: {fileID: 0}
 --- !u!212 &7073823344550482013
 SpriteRenderer:
   m_ObjectHideFlags: 0
