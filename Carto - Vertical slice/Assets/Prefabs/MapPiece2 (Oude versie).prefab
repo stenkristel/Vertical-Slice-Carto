@@ -968,7 +968,7 @@ GameObject:
   - component: {fileID: 5267063292243039754}
   - component: {fileID: 5267063292243039749}
   m_Layer: 0
-  m_Name: MapPiece2
+  m_Name: MapPiece2 (Oude versie)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
