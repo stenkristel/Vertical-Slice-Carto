@@ -8,18 +8,16 @@ public class TilePlacement : MonoBehaviour
     public GameObject nearbytile;
     private float xdir;
     private float zdir;
+    
 
-    private void Update()
+    public void starttileplacement()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        nearbytile = findUItile();
+        if (nearbytile != null)
         {
-            nearbytile = findUItile();
-            if (nearbytile != null)
-            {
-                placeoverworldtile();
-            }
-            Debug.Log("Find UI tiles = " + nearbytile);
+            placeoverworldtile();
         }
+        Debug.Log("Find UI tiles = " + nearbytile);
     }
 
     public void placeoverworldtile()
@@ -38,23 +36,23 @@ public class TilePlacement : MonoBehaviour
             {
                 case 0:
                     dis = Vector3.down;
-                    zdir = 40;
+                    zdir = 15;
                     xdir = 0;
                     break;
                 case 1:
                     dis = Vector3.up;
-                    zdir = -40;
+                    zdir = -15;
                     xdir = 0;
                     break;
                 case 2:
                     dis = Vector3.right;
                     zdir = 0;
-                    xdir = -40;
+                    xdir = -15;
                     break;
                 case 3:
                     dis = Vector3.left;
                     zdir = 0;
-                    xdir = 40;
+                    xdir = 15;
                     break;
             }
             GameObject UItile =  raycastUItile(dis);
@@ -70,7 +68,9 @@ public class TilePlacement : MonoBehaviour
     {
         if (Physics.Raycast(selectedpiece.transform.position, selectedpiece.transform.TransformDirection(distance), out RaycastHit hit, 5f))
         { 
+            Debug.Log(hit.collider.gameObject);
             return hit.collider.gameObject;
+
         }
         else return null;
     }

@@ -20,9 +20,16 @@ public class OpenMap : MonoBehaviour
     private PlayerCamera camscript;
     [SerializeField] private Movement Playermovement;
     private TilePlacement tileplacementscript;
+    public Placablepiece Placablepiecescript;
+    public mapPlacement MapPlacementscript;
+    public mapMovement mapMovementscript;
 
     [SerializeField] private GameObject Mapcharacter;
+    [SerializeField] private GameObject scope;
+    [SerializeField] private GameObject toolbar;
+    public GameObject Player;
 
+    //public GameObject Piece;
     private void Start()
     {
         zoomingin = false;
@@ -30,7 +37,6 @@ public class OpenMap : MonoBehaviour
         mapmode = false;
         speed = 5;
         camscript = cam.GetComponent<PlayerCamera>();
-        Playermovement = gameObject.GetComponent<Movement>();
         tileplacementscript = gameObject.GetComponent<TilePlacement>();
     }
     void Update()
@@ -51,9 +57,13 @@ public class OpenMap : MonoBehaviour
             {
                 zoomingin = true;
                 tileplacementscript.enabled = false;
+                Placablepiecescript.enabled = false;
+                mapMovementscript.enabled = false;
+                MapPlacementscript.enabled = false;
             }
         }
         camerazoomout();
+        //Mapcharacter.gameObject.transform.position = findmatchingMAPpiece(Piece).gameObject.transform.position;
     }
 
     private void camerazoomout()
@@ -79,6 +89,9 @@ public class OpenMap : MonoBehaviour
             {
                 zoomingout = false;
                 tileplacementscript.enabled = true;
+                Placablepiecescript.enabled = true;
+                mapMovementscript.enabled = true;
+                MapPlacementscript.enabled = true;
                 mapmode = !mapmode;
             }
         }
@@ -98,6 +111,7 @@ public class OpenMap : MonoBehaviour
             alpha = 0.34f;
             changepos = -2f;
         }
+
         foreach (Transform child in mapelements.transform)
         {
             if (child.tag == "map")
@@ -110,6 +124,24 @@ public class OpenMap : MonoBehaviour
         {
             SpriteRenderer Image = Child.GetComponent<SpriteRenderer>();
             StartCoroutine(fade(Image, alpha, changepos));
+        }
+
+        foreach (Transform CHILD in scope.transform)
+        {
+            foreach (Transform CHIld in CHILD)
+            {
+                SpriteRenderer Image = CHIld.GetComponent<SpriteRenderer>();
+                StartCoroutine(fade(Image, alpha, 0f));
+            }
+        }
+
+        foreach (Transform chold in toolbar.transform)
+        {
+            if (chold.tag == "map")
+            {
+                SpriteRenderer Image = chold.GetComponent<SpriteRenderer>();
+                StartCoroutine(fade(Image, alpha, 0f));
+            }
         }
 
     }
@@ -131,7 +163,9 @@ public class OpenMap : MonoBehaviour
     {
         GameObject Piece = findcurrentOWmap();
         Debug.Log(Piece);
-        Mapcharacter.gameObject.transform.position = new Vector3(findmatchingMAPpiece(Piece).gameObject.transform.position.x, Mapcharacter.transform.position.y, Mapcharacter.transform.position.z);
+        Mapcharacter.gameObject.transform.position = findmatchingMAPpiece(Piece).gameObject.transform.position;
+        Mapcharacter.gameObject.transform.position -= new Vector3(0, 0, 0.1f);
+        //Mapcharacter.transform.SetParent(findmatchingMAPpiece(Piece).transform, false);
     }
 
     public void MoveMaptoMiddle(GameObject MapPiece)
@@ -146,7 +180,7 @@ public class OpenMap : MonoBehaviour
 
     public GameObject findcurrentOWmap()
     {
-        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.TransformDirection(Vector3.down), out RaycastHit hit, 5f))
+        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.TransformDirection(Vector3.forward), out RaycastHit hit, 5f))
         {
             return hit.collider.gameObject;
         }

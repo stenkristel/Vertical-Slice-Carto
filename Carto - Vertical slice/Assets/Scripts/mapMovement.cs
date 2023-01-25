@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class mapMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject mapcharacter;
     void Start()
     {
 
@@ -16,19 +16,19 @@ public class mapMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            transform.position += new Vector3(0, 1, 1);
+            transform.position -= new Vector3(0, 0.95f, 1.30f);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            transform.position -= new Vector3(0, 1, 1);
+            transform.position += new Vector3(0, 0.95f, 1.30f);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            transform.position -= new Vector3(1, 0, 0);
+            transform.position += new Vector3(1.6f, 0, 0);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            transform.position += new Vector3(1, 0, 0);
+            transform.position -= new Vector3(1.6f, 0, 0);
         }
     }
 }
