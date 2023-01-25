@@ -7,8 +7,10 @@ public class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
+    public bool isMuted;
     public Rigidbody rb;
     public Animator animator;
+    public AudioSource walking;
 
    Vector3 movement;
 
@@ -30,12 +32,33 @@ public class Movement : MonoBehaviour
         {
             animator.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
             animator.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
+            isMuted = true;
+            AudioPlay();
         }
+        else
+        {
+            Unmute();
+        }
+
 
     }
 
     private void FixedUpdate()
     {
     rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
+    }
+    
+
+    private void Unmute()
+    {
+        isMuted = false;
+    }
+    
+    private void AudioPlay()
+    {
+        if(isMuted == true)
+        {
+            GetComponent<AudioSource>().Play();
+        }
     }
 }
