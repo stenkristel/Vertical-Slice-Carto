@@ -32,14 +32,18 @@ public class Movement : MonoBehaviour
         {
             animator.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
             animator.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
-            isMuted = true;
-            AudioPlay();
+           
         }
         else
         {
             Unmute();
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftArrow) | Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            isMuted = true;
+            AudioPlay();
+        } 
 
     }
 
